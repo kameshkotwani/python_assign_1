@@ -1,6 +1,10 @@
 '''
 Python Assignment 1 Reboot Academy 
 Sales Price Question 1 
+
+Created using Python 3.6.4 
+CAUTION: MAY NOT WORK IN OLDER 
+
 Solved by: Kamesh Kotwani
 '''
 
