@@ -14,7 +14,7 @@ t_amount  = input(f"Enter the total amount you have paid, {name} : Rs. ")
 #To calculate the taxes
 tip = float(t_amount)*0.18
 s_tax = float(t_amount)*0.07
-s_tax=round(s_tax,)
+s_tax=round(s_tax,3)
 
 #To print all the prices
 print(f"The 18% tip you have paid      : Rs. {tip}")
