@@ -21,6 +21,8 @@ if(n==0):
 
 #To check if n i between 1 and 10
 if(n>=1 and n<=10):
+    
+    #To check if n is odd or even
     if(n%2==0):
         print("You have Chosen BLACK!!")
     else:
