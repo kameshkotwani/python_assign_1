@@ -9,7 +9,7 @@ Solved by: Kamesh Kotwani
 '''
 #To input the name and the total amount paid
 name = input ("Please Enter your name : ")
-t_amount  = int(input(f"Enter the total amount you have paid, {name} : Rs. "))
+t_amount  = float(input(f"Enter the total amount you have paid, {name} : Rs. "))
 
 #To calculate the taxes
 tip = float(t_amount)*0.18
@@ -20,7 +20,7 @@ s_tax=round(s_tax,3)
 print(f"The 18% tip you have paid      : Rs. {tip}")
 print(f"The 7% sales tax you have paid : Rs. {s_tax}")
 print(f"The total amount you have paid : Rs. {t_amount}")
-total = int(tip+s_tax+t_amount)
+total = float(tip+s_tax+t_amount)
 #To print the total amount paid after all taxes applied
 print(f"The Sum of all the taxes and amount paid is : Rs. {total}")
 
