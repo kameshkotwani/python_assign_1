@@ -25,7 +25,7 @@ cupb_r = cup_b*num
 cupf_r = cup_f*num
 
 #Displaying the number of cups needed for cookies entered by user
-print(f"You need {cups_r} of Sugar")
-print(f"You need {cupb_r} of Butter")
-print(f"You need {cupf_r} of Flour to make {num} cookies")
+print(f"You need {cups_r} cups of Sugar")
+print(f"You need {cupb_r}  cups of Butter")
+print(f"You need {cupf_r} cups of Flour to make {num} cookies")
 
