@@ -21,5 +21,3 @@ dis =float(amount)*0.80
 
 #To print the discounted price
 print(f"The Total amount you have to pay after 20% discount is : {dis} Rupees")
-
-
