@@ -20,7 +20,7 @@ if(n==0):
     print("You have chosen GREEN!")
 
 #To check if n i between 1 and 10
-if(n>=1 and n<=10):
+elif(n>=1 and n<=10):
     
     #To check if n is odd or even
     if(n%2==0):
@@ -29,21 +29,21 @@ if(n>=1 and n<=10):
         print("You have chosen RED!!")
 
 #To check if n i between 11 and 18
-if(n>=11 and n<=18):
+elif(n>=11 and n<=18):
     if(n%2==0):
         print("You have chosen RED!!")
     else:
         print("You have chosen BLACK!!")
 
 #To check if n i between 9 and 28
-if(n>=19 and n<=28):
+elif(n>=19 and n<=28):
     if(n%2==0):
         print("You have chosen BLACK!!")
     else:
         print("You have chosen RED!!")
 
 #To check if n i between 29 and 36
-if(n>=29 and n<=36):
+elif(n>=29 and n<=36):
     if(n%2==0):
         print("You have chosen RED!!")
     else:
