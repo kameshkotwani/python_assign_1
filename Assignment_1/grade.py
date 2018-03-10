@@ -6,7 +6,6 @@ This solution is created in python 3.6.4
 CAUTION: MAY NOT WORK IN OLDER VERSION
 
 Solved by: Kamesh Kotwani
-
 '''
 
 print("Welcome to Test Score Grade System! This System will help you find out your grade!")
