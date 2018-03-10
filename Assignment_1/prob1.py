@@ -7,7 +7,6 @@ CAUTION: MAY NOT WORK IN OLDER
 
 Solved by: Kamesh Kotwani
 '''
-
 #To input the user name 
 name = input("Please Enter your name : ")
 print(f"Hello {name}, Welcome to sales price!")
