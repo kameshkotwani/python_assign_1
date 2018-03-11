@@ -21,4 +21,5 @@ if(time<3600):
     print(f"{time} seconds have approx : {round(minutes)} minutes.")
 if(time >= 86400):
     print("some useful information!")
+    #Final Print
     print(f"{time} seconds has approx: {round(days)} days, approx:  {round(hours)} hours, approx : {round(minutes)} minutes.")
