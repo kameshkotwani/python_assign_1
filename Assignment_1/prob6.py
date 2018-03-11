@@ -12,10 +12,13 @@ print("****Welcome to Time Calculator****")
 time = int(input("Please Enter number of seconds : "))
 while(time < 0):
     time = int(input("Please Enter number of seconds : "))
+minutes = time / 60
+hours = time/3600
+days = time / 86400
 if(time >= 3600):
-    hours = time/3600
-    
-    print(f"Number of hours in {time} seconds is : {round(hours)} hours.")
+    print(f"Number of hours in {time} seconds is approx: {round(hours)} hours.")
 if(time<3600):
-    minutes = time / 60
     print(f"{time} seconds have approx : {round(minutes)} minutes.")
+if(time >= 86400):
+    print("some useful information!")
+    print(f"{time} seconds has approx: {round(days)} days, approx:  {round(hours)} hours, approx : {round(minutes)} minutes.")
