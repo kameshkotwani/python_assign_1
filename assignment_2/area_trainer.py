@@ -6,3 +6,12 @@ CAUTION: MAY NOT WORK IN OLDER VERSION
 
 Solved by: Kamesh Kotwani
 '''
+
+def pass_check(password):
+    pass
+
+
+def main():
+    print("******Hello to Area Trainer******")
+    name = str(input("Please enter your name : "))
+    password = str(input("Please enter an appropriate password : "))
