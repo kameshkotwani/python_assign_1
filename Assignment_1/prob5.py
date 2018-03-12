@@ -12,7 +12,7 @@ import math
 #Defining Function
 def polysum(side, n):
     area = (0.25 * n * (side ** 2)) / (math.tan((math.pi / n))) #Formula
-    perimeter = n * n    #Perimeter
+    perimeter = n*side    #Perimeter
     sum = area + (perimeter ** 2)   #Sum of both with square of perimeter
     return (round(sum,4))           #returning sum 
 
@@ -35,5 +35,5 @@ def main():
     #Printing value of sum
     print(f"Total sum of Area and Perimeter is : {total_sum}")
 
-if(__name__) == "__main__":
-    main()
+#if(__name__) == "__main__": Not necessary to write when calling main function
+main()
