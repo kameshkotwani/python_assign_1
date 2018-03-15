@@ -35,7 +35,7 @@ def circle():
     print(f"Radius is  : {radius}")
     options(area)
     #Asking the user to input his/her choice
-    choice = int(input("Please Enter 1 or 2 or 3 or 4 : "))
+    choice = int(input("Please Enter 1 or 2 or 3 or 4 : \nYOUR CHOICE : "))
     #Calling check function to see if user has input a correct option
     check(choice)
 
@@ -53,29 +53,52 @@ def rectangle():
     #Calling check function to see if user has input a correct option
     check(choice)
 
+def triangle():
+    #Using Random function to stimulate integers from 1 to 50
+    height = random.randint(1, 20)
+    base = random.randint(1, 20)
+    area = 0.5*base*height
+    #Printing Options
+    print(f"height is :  {height}, base is : {base}")
+    options(area)
+    #Asking the user to input his/her choice
+    choice = int(input("Please Enter 1 or 2 or 3 or 4 : "))
+    #Calling check function to see if user has input a correct option
+    check(choice)
+
 
 def main():
-    print("******Hello to Area Trainer******")
-    SCORE = 0   
+    print("******Hello to Area Trainer******")   
     #Creating an infinite Loop until user inputs to exit
     while(True):
         
         #Asking user to input a choice among given options
         ch = int(input(" Press 1 for Circle.\n Press 2 for Triangle.\n Press 3 for Rectangle.\n Press 4 to see your score.\n Press 5 to exit. \n YOUR CHOICE : "))
+        
+        #Calling circle function if user inputs 1
         if(ch == 1):
-            
-            #Calling circle function if user inputs 1
             circle()
+
+        #Calling Triangle Function if user inputs 2
+        elif(ch == 2):
+            triangle()
+
+        #Calling Rectangle Function if user inputs 3
         elif(ch ==3):
             rectangle()            
         
+        elif(ch == 4):
+            print(f"Your current score is : __Under Construction__ ")
+        
+        #Calling exit function to exit from program
         elif(ch ==5):
             print("Goodbye,thanks for training! Have a nice day.")
-            
-            #Calling exit function to exit from program
+            print(f"Your Final score is : __Under Construction__ ")
             exit()       
+            
+        #If user inputs something else
         else:
-            print("\n__Under construction__\n Please select something else. \n")
+            print("__Please select something else__ \n")
             
 
 
