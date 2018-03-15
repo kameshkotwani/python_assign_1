@@ -81,8 +81,26 @@ def triangle():
     check(choice)
 
 
+
+#Defined a login function 
+def login(name,passkey):
+   
+    if(name == "kamesh" and passkey == "kamesh@123"):
+        print(f"ACCESS GRANTED! \nHello {name} ")
+        pass
+    else:
+        print("ACCESS DENIED Try again : ")
+        name = str(input("Please enter your name : "))
+        passkey = str(input("Please enter your password : "))
+        login(name,passkey)
+
 def main():
-    print("******Hello to Area Trainer******")   
+    print("******Hello to Area Trainer******") 
+    #Calling LOGIN FUNCTION to GRANT ACCESS
+    name = str(input("Please enter your name : "))
+    passkey = str(input("Please enter your password : "))
+    login(name, passkey)
+    
     #Creating an infinite Loop until user inputs to exit
     while(True):
         
@@ -102,12 +120,12 @@ def main():
             rectangle()            
         
         elif(ch == 4):
-            print(f"Your current score is : {SCORE} ")
+            print(f"{name}, your current score is : {SCORE} ")
         
         #Calling exit function to exit from program
         elif(ch ==5):
             print("\nGoodbye,thanks for training! Have a nice day.")
-            print(f"Your Final score is : {SCORE} \n")
+            print(f"{name}, your Final score is : {SCORE} \n")
             exit()       
             
         #If user inputs something else
