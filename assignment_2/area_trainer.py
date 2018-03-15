@@ -23,7 +23,7 @@ def circle():
     #Printing Options
     print(f"Radius is  : {radius}")
     print("Only one of them is correct, Please enter your option")
-    print("Option 1 : ", round(area+2,4))
+    print("Option 1 : ", round(area,4))
     print("Option 2 : ", round(area+0.8,4))
     print("Option 3 : ", round(area+1,4))
     print("Option 4 : ", round(area + 3, 4))
