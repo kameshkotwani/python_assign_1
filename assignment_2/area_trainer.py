@@ -20,15 +20,13 @@ def increment():
 
 #A check Function to see if user has given correct answer
 def check(user_choice,ans):
-    if(user_choice==ans):
+    if(user_choice==ans and user_choice in range(1,5)):
         print(" \n__You are correct, +1 point__\n")
         increment()  #increment score if the choice is correct
     else:
         print("\n__WRONG__\n")
-        
     if(user_choice not in range(1,5)):
         user_choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
-        
         #Recursively Calling check function 
         check(user_choice,ans)
 
