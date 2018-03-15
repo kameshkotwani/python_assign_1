@@ -49,15 +49,26 @@ def circle():
 
 def main():
     print("******Hello to Area Trainer******")
+    
+    #Creating an infinite Loop until user inputs to exit
     while(True):
+        
+        #Asking user to input a choice among given options
         ch = int(input(" Press 1 for Circle.\n Press 2 for Triangle.\n Press 3 for Rectangle.\n Press 4 for Square\n Press 5 to exit.\n YOUR CHOICE : "))
         if(ch == 1):
+            
+            #Calling circle function if user inputs 1
             circle()
         elif(ch ==5):
             print("Goodbye,thanks for training! Have a nice day.")
+            
+            #Calling exit function to exit from program
             exit()       
         else:
             print("\n__Under construction__ Please select something else \n")
             
+
+
+#Calling main function
 if(__name__) == "__main__":
     main()
