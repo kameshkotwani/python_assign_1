@@ -19,26 +19,18 @@ def increment():
     SCORE+=1
 
 #A check Function to see if user has given correct answer
-def check(choice):
-    if(choice == 1 or choice ==2 or choice ==3 or choice ==4):
-        if(choice == 1):
-            print(" \n__You are correct, +1 point__\n")
-            increment()  #increment score if the choice is correct
-        else:
-            print("\n__WRONG__\n")
+def check(user_choice,ans):
+    if(user_choice==ans):
+        print(" \n__You are correct, +1 point__\n")
+        increment()  #increment score if the choice is correct
     else:
-        choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
+        print("\n__WRONG__\n")
+        
+    if(user_choice not in range(1,5)):
+        user_choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
         
         #Recursively Calling check function 
-        check(choice)
-
-#Defining Options function to print the options
-def options(area):
-    print("\nOnly one of them is correct, Please enter your option")
-    print("Option 1 : ", round(area,4))
-    print("Option 2 : ", round(area+4,4))
-    print("Option 3 : ", round(area+6,4))
-    print("Option 4 : ", round(area + 10, 4))
+        check(user_choice,ans)
 
 #Defining the Function for circle
 def circle():
@@ -47,11 +39,16 @@ def circle():
     area = math.pi*(radius**2)
     #Printing Options
     print(f"Radius is  : {radius}")
-    options(area)
+    print("\nOnly one of them is correct, Please enter your option")
+    print("Option 1 : ", round(area,4))
+    print("Option 2 : ", round(area+4,4))
+    print("Option 3 : ", round(area+6,4))
+    print("Option 4 : ", round(area + 10, 4))
+    ans = 1
     #Asking the user to input his/her choice
-    choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
+    user_choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
     #Calling check function to see if user has input a correct option
-    check(choice)
+    check(user_choice,ans)
 
 #Defining rectangle Function
 def rectangle():
@@ -61,11 +58,16 @@ def rectangle():
     area = length*breadth
     #Printing Options
     print(f"length is :  {length}, breadth is : {breadth}")
-    options(area)
+    print("\nOnly one of them is correct, Please enter your option")
+    print("Option 1 : ", round(area+6,4))
+    print("Option 2 : ", round(area+4,4))
+    print("Option 3 : ", round(area,4))
+    print("Option 4 : ", round(area + 10, 4))
+    ans = 3
     #Asking the user to input his/her choice
-    choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
+    user_choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
     #Calling check function to see if user has input a correct option
-    check(choice)
+    check(user_choice,ans)
 
 def triangle():
     #Using Random function to stimulate integers from 1 to 20
@@ -74,18 +76,23 @@ def triangle():
     area = 0.5*base*height
     #Printing Options
     print(f"height is :  {height}, base is : {base}")
-    options(area)
+    print("\nOnly one of them is correct, Please enter your option")
+    print("Option 1 : ", round(area+7,4))
+    print("Option 2 : ", round(area+4,4))
+    print("Option 3 : ", round(area+6,4))
+    print("Option 4 : ", round(area,4))
+    ans = 4
     #Asking the user to input his/her choice
-    choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
+    user_choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
     #Calling check function to see if user has input a correct option
-    check(choice)
+    check(user_choice,ans)
 
 
 
 #Defined a login function 
 def login(name,passkey):
    
-    if(name == "kamesh" and passkey == "kamesh@123"):
+    if(name == "user" and passkey == "root"):
         print(f"ACCESS GRANTED! \nHello {name} ")
         pass
     else:
