@@ -18,17 +18,31 @@ def increment():
     global SCORE
     SCORE+=1
 
+#Making a input check function, prompts user until he/she gives required input
+def input_check():
+    con = True
+    
+    #Continiously Running the loop until user gives correct input
+    while(con):
+        try:
+            inp = int(input("Please Enter your Choice : "))
+            con = False
+            return inp
+        except:
+            print("Wrong Input Please input again")
+
+
 #A check Function to see if user has given correct answer
 def check(user_choice,ans):
     if(user_choice==ans and user_choice in range(1,5)):
         print(" \n__You are correct, +1 point__\n")
         increment()  #increment score if the choice is correct
-    else:
-        print("\n__WRONG__\n")
-    if(user_choice not in range(1,5)):
-        user_choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
+    elif(user_choice not in range(1,5)):
+        user_choice = input_check()
         #Recursively Calling check function 
         check(user_choice,ans)
+    else:
+        print("\n__WRONG__\n")
 
 #Defining the Function for circle
 def circle():
@@ -44,7 +58,7 @@ def circle():
     print("Option 4 : ", round(area + 10, 4))
     ans = 1
     #Asking the user to input his/her choice
-    user_choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
+    user_choice = input_check()
     #Calling check function to see if user has input a correct option
     check(user_choice,ans)
 
@@ -63,7 +77,7 @@ def rectangle():
     print("Option 4 : ", round(area + 10, 4))
     ans = 3
     #Asking the user to input his/her choice
-    user_choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
+    user_choice = input_check()
     #Calling check function to see if user has input a correct option
     check(user_choice,ans)
 
@@ -81,15 +95,18 @@ def triangle():
     print("Option 4 : ", round(area,4))
     ans = 4
     #Asking the user to input his/her choice
-    user_choice = int(input("Please Enter 1 or 2 or 3 or 4 \nYOUR CHOICE : "))
+    user_choice = input_check()
     #Calling check function to see if user has input a correct option
     check(user_choice,ans)
-
 
 
 #Defined a login function 
 def login(name,passkey):
    
+    #Checking for any whitespace and using strip function
+    name = name.strip()
+    passkey = passkey.strip()
+    
     if(name == "user" and passkey == "root"):
         print(f"ACCESS GRANTED! \nHello {name} ")
         pass
@@ -97,7 +114,19 @@ def login(name,passkey):
         print("ACCESS DENIED Try again : ")
         name = str(input("Please enter your name : "))
         passkey = str(input("Please enter your password : "))
+        
+        #Recursively Calling Login Function 
         login(name,passkey)
+
+
+#Made an options function for simplicity of Main function
+def options():
+    print("Press 1 for Circle")
+    print("Press 2 for Triangle")
+    print("Press 3 for Rectangle")
+    print("Press 4 to see your score")
+    print("Press 5 to exit")
+
 
 def main():
     print("******Hello to Area Trainer******") 
@@ -110,8 +139,9 @@ def main():
     while(True):
         
         #Asking user to input a choice among given options
-        ch = int(input(" Press 1 for Circle.\n Press 2 for Triangle.\n Press 3 for Rectangle.\n Press 4 to see your score.\n Press 5 to exit. \n YOUR CHOICE : "))
-        
+        options()
+        ch = input_check()
+    
         #Calling circle function if user inputs 1
         if(ch == 1):
             circle()
