@@ -28,8 +28,8 @@ def input_check():
             inp = int(input("Please Enter your Choice : "))
             con = False
             return inp
-        except:
-            print("Wrong Input Please input again")
+        except ValueError as err:
+            print(err, "Wrong Input Please input again")
 
 
 #A check Function to see if user has given correct answer
