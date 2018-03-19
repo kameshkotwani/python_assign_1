@@ -39,13 +39,13 @@ def passkey_genertor():
     length_passkey = random.randint(8, 15)
     print("lentgh chosen :  ",length_passkey)
     chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%^&*()_-+='
-    symbols = set('!#$%^&*()_-+=')
     passkey = ''
     for c in range(length_passkey):
         passkey += random.choice(chars)
     result  = passkey_checker(passkey,2)
     if(result <= 15):
-        passkey_genertor()
+        passkey = passkey_genertor()
+        result  = passkey_checker(passkey,2)
     else:
         return passkey
 
@@ -53,11 +53,13 @@ def passkey_genertor():
 #A function to check the strength of the password
 def passkey_checker(user_passkey,ch):
     
+    if(user_passkey == None):
+        return 1
     #Creating a set of allowed symbols
     allowed_symbols = set("!#$%^&*()_-+=")
     
     global POINTS
-    POINTS = user_passkey.__len__()
+    POINTS = len(user_passkey)
     
     #Checking if the user input is between 8-20 characters
     if(POINTS > 8 and POINTS < 20):
@@ -119,7 +121,7 @@ def passkey_checker(user_passkey,ch):
             passkey_checker(user_passkey,1)
         elif(ch==2):
             generated_passkey=passkey_genertor()
-            ans = passkey_checker(generated_passkey, 2)
+            POINTS = passkey_checker(generated_passkey, 2)
         else:
             print("ERROR. TRY AGAIN")
             exit()
