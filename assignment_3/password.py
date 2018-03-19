@@ -19,7 +19,7 @@ def input_check():
     #Continiously Running the loop until user gives correct input
     while(con):
         try:
-            inp =str(input("Please Enter your Choice : "))
+            inp =int(input("YOUR Choice : "))
             con = False
             return inp
         except:
@@ -28,58 +28,113 @@ def input_check():
 
 #Defining Options Function 
 def options():
-    print("Press a to Check strength of your password")
-    print("Press b to create a strong password for you")
-    print("Press c to quit from program")
+    print("1. to Check strength of your password")
+    print("2. to create a strong password for you")
+    print("3. to quit from program")
 
 
 #A function to check the strength of the password
 def passkey_checker(user_passkey):
+    
+    #Creating a set of allowed symbols
+    allowed_symbols = set("!#$%^&*()_-+=")
+    
     global POINTS
     POINTS = user_passkey.__len__()
-    if(POINTS < 8 or POINTS > 20):
-        user_passkey = str(input("Please Enter your password again 8-20 characters : "))
-        passkey_checker(user_passkey)
-    print("initial POINTS is now",POINTS)
-    for c in user_passkey:
-        if(c.islower()):
-            POINTS += 5
-            print("after islower POINTS is now",POINTS)
-            break
-    for c in user_passkey:
-        if(c.isupper()):
-            POINTS += 5
-            print("after isupper POINTS is now",POINTS)
-            break
-    for c in user_passkey:
-        if(c.isdigit()):
-            POINTS += 5
-            print("after is digit POINTS is now",POINTS)
-            break
+    
+    #Checking if the user input is between 8-20 characters
+    if(POINTS > 8 and POINTS < 20):
+        POINTS+=5
+    else:
+        POINTS -= 5
+    
+    #Using any function to check if at least one characer is lowercase or not
+    con  = any(c.islower() for c in user_passkey)
+    
+    #If it contains increase the POINTS
+    if(con):
+        POINTS += 5
+    #If it does not contain the decrease POINTS
+    else:
+        POINTS -= 5
 
+    #Checking if all the characters are lower    
+    if(user_passkey.islower()):
+        POINTS -= 5
+
+    #Using any function to check if at least one characer is UPPERCASE or not
+    con  = any(c.isupper() for c in user_passkey)
+    
+    #If it contains increase the POINTS
+    if(con):
+        POINTS += 5
+    
+    #If it does not contain the decrease POINTS
+    else:
+        POINTS -= 5
+    
+    #Checking if all the characters are UPPER    
+    if(user_passkey.isupper()):
+        POINTS -= 5
+
+    #Using any function to check if at least one characer is DIGIT or not
+    con  = any(c.isdigit() for c in user_passkey)
+    
+    #If it contains increase the POINTS
+    if(con):
+        POINTS += 5
+        
+    #If it does not contain the decrease POINTS
+    else: 
+        POINTS -= 5
+    
+    #Checking if all the characters are DIGITS    
+    if(user_passkey.isdigit()):
+        POINTS -= 5
+    
+    con = any((c in allowed_symbols) for c in user_passkey)
+    if(con):
+        POINTS += 5
+    else:
+        print(f"YOU SHOULD USE THESE SYMBOLS AS WELL : {allowed_symbols}")
+        POINTS -= 5
+        
+    #Checking for any consicutive input by user
+    qwerty="qwertyuiopasdfghjklzxcvbnm"
+    for i in range(0,user_passkey.__len__()-2):
+        t = user_passkey[i:i+3]
+        if (t.lower() in qwerty):
+            POINTS -= 5
+    
+    #Returning back the POINTS to main function to check the score 
+    return POINTS        
 
 #Main function of the program
 def main():
     global POINTS
     while(True):
         options()
-        ch = (input("YOUR CHOICE : "))
+        #Catching any exception in input using input_check function
+        ch =input_check()
         
-        if(ch == chr(97)):
+        if(ch == 1):
             user_passkey = str(input("Enter your password : "))
-            passkey_checker(user_passkey)
-
-        elif(ch == chr(98)):
+            score = passkey_checker(user_passkey)
+            if(score <= 15):
+                print("Password too weak")
+            else:
+                print(f"GREAT PASSWORD : YOU CAN USE IT {user_passkey}")
+                
+        elif(ch == 2):
             print("__UNDER CONSTRUCTION__")
         
-        elif(ch == chr(99)):
+        elif(ch == 3):
             print("bye.")
             exit()
         else:
-            print("ERROR.")
+            print("ERROR. INPUT AGAIN")
 
 
 if(__name__) == "__main__":
     main()
 
-    
