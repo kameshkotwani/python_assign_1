@@ -9,6 +9,7 @@ CAUTION: MAY NOT WORK IN OLDER VERSION
 Crafted by: Kamesh Kotwani
 '''
 import string
+import random
 
 POINTS = 0
 
@@ -33,8 +34,24 @@ def options():
     print("3. to quit from program")
 
 
+
+def passkey_genertor():
+    length_passkey = random.randint(8, 15)
+    print("lentgh chosen :  ",length_passkey)
+    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%^&*()_-+='
+    symbols = set('!#$%^&*()_-+=')
+    passkey = ''
+    for c in range(length_passkey):
+        passkey += random.choice(chars)
+    result  = passkey_checker(passkey,2)
+    if(result <= 15):
+        passkey_genertor()
+    else:
+        return passkey
+
+
 #A function to check the strength of the password
-def passkey_checker(user_passkey):
+def passkey_checker(user_passkey,ch):
     
     #Creating a set of allowed symbols
     allowed_symbols = set("!#$%^&*()_-+=")
@@ -95,10 +112,17 @@ def passkey_checker(user_passkey):
     con = any((c in allowed_symbols) for c in user_passkey)
     if(con):
         POINTS += 5
-    else:
+    elif(not con):
         print(f"YOU SHOULD USE THESE SYMBOLS AS WELL : {allowed_symbols}")
-        POINTS -= 5
-        
+        if(ch == 1):
+            user_passkey = input("Please Enter the password again : ")
+            passkey_checker(user_passkey,1)
+        elif(ch==2):
+            generated_passkey=passkey_genertor()
+            ans = passkey_checker(generated_passkey, 2)
+        else:
+            print("ERROR. TRY AGAIN")
+            exit()
     #Checking for any consicutive input by user
     qwerty="qwertyuiopasdfghjklzxcvbnm"
     for i in range(0,user_passkey.__len__()-2):
@@ -119,15 +143,15 @@ def main():
         
         if(ch == 1):
             user_passkey = str(input("Enter your password : "))
-            score = passkey_checker(user_passkey)
+            score = passkey_checker(user_passkey,ch)
             if(score <= 15):
                 print("Password too weak")
             else:
                 print(f"GREAT PASSWORD : YOU CAN USE IT {user_passkey}")
                 
         elif(ch == 2):
-            print("__UNDER CONSTRUCTION__")
-        
+            ans = passkey_genertor()
+            print(f"YOU CAN USE THIS ONE : {ans}")
         elif(ch == 3):
             print("bye.")
             exit()
